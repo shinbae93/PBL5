@@ -1,0 +1,428 @@
+{% extends './base.html' %}
+    {% block content %}
+    {% if user.is_authenticated %}
+        <div id="main">
+            <div id="container" >
+                <!--
+                    =======================NAVBAR==========================
+                -->
+                <div id="navbar">
+                    <div class="navbar-container">
+                        <header>
+                            <span class="check">
+                                <span class="ball"></span>
+                            </span>
+                            <i class="fas fa-stream js-hide-navbar"></i>
+                        </header>
+                        <div class="logo">
+
+                            <i class="navbar__logo fab fa-solid fa-paw"></i>
+                            <span class="navbar__primary-text">Paw</span><span>music</span>
+                        </div>
+                        <div class="navbar-content">
+                            <nav>
+                                    <li class="navbar-content__icon">
+                                        <a href="/home"><i class="fas fa-home"></i>Home</a>
+                                    </li>
+                                    <li class="navbar-content__icon">
+                                        <a href="#"><i class="fas fa-chart-line"></i>Trend</a>
+                                    </li>
+                                    <li class="navbar-content__icon">
+                                        <a href="#"><i class="fas fa-compass"></i>Feed</a>
+                                    </li>
+                            </nav>
+
+                            
+
+                            <nav>
+                                <p class=" navbar-content__title">Your Collection</p>
+                                <ul>
+                                    <li class="navbar-content__icon">
+                                        <a href="#"><i class="fas fa-heart"></i>Favorite Songs</a>
+                                    </li>
+                                    <li class="navbar-content__icon">
+                                        <a href="#"><i class="fas fa-users"></i>Artist</a>
+                                    </li>
+                                    <li class="navbar-content__icon">
+                                        <a href="#"><i class="fas fa-star"></i>Albums</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-user">
+                        <div class="navbar-user__container">
+                            <div class="user-avt">
+                                <img src="" alt="">
+                            </div>
+                            <div class="user-name">{{ firstname }}</div>
+                            <a href=""><i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            
+                <!--
+                    ====================MAIN_CONTENT=====================
+                -->
+                <div id="main-content" >
+                    <header>
+                        <nav class="main-content__header-nav">
+                            <i class="fas fa-bars bars-left"></i>
+                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-arrow-right"></i>
+                        </nav>
+                        <div class="main-content__search-form">
+                            <i class="fas fa-search search-btn"></i>
+                            <input type="text" class="search-input" placeholder="Search for artist, songs.....">
+                        </div>
+                        <i class="fas fa-bars bars-right"></i>
+                    </header>
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Nổi bật</h3>
+                        </div>
+                        <div class="main-content_container-content">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>                                
+                                        </div>                      
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Top 100 nhạc Việt Nam</h3>
+                        </div>
+                        <div class="main-content_container-content">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>                                
+                                        </div>                      
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/f/7/6/cf76de6283cfa98ec85a301addb676e5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Top 100 nhạc Hàn Quốc</h3>
+                        </div>
+                        <div class="main-content_container-content">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>                                
+                                        </div>                      
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/1/d/1/9/1d19047de6252c181c11970ca8a91a86.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Top 100 nhạc Âu Mỹ</h3>
+                        </div>
+                        <div class="main-content_container-content">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>                                
+                                        </div>                      
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="card swiper-slide" style="min-width: 18rem; background-color: transparent; border: none">
+                                        <div class="swiper-content">
+                                            <img src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/0/6/4/606430a29783ea7f864de569bb8a45d0.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+                    ====================SIDE-BAR=========================
+                -->
+                <div id="sidebar">
+                    <div class="sidebar__shortcuts">
+                        <p class="sidebar__shortcuts-title">Shortcuts
+                            <i class="fas fa-stream js-hide-sidebar"></i>
+                        </p>
+                        <div class="sidebar__shortcuts-items">
+                            <span class="sidebar__shortcuts-item">Chill
+                                {% load static %}
+                                <img src="{% static '/img/snow.png' %}" alt="">
+                            </span>
+                            <span class="sidebar__shortcuts-item">Hot
+                                {% load static %}
+                                <img src="{% static '/img/star.png' %}" alt="">
+                            </span>
+                            <span class="sidebar__shortcuts-item">Piano instrumental
+                                {% load static %}
+                                <img src="{% static '/img/piano.png' %}" alt="">
+                            </span>
+                            <span class="sidebar__shortcuts-item">Jazz
+                                {% load static %}
+                                <img src="{% static '/img/jazz.png' %}" alt="">
+                            </span>
+                            <span class="sidebar__shortcuts-item">Acoustic
+                                {% load static %}
+                                <img src="{% static '/img/ghitar.png' %}" alt="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar__favorite">
+                        <p class="sidebar__favorite-title">Favorite Artists</p>
+                        <!--    ARTIST 1    -->
+                        <div class="sidebar__favorite-list">
+                            <div class="artist-info__avt">
+                                {% load static %}
+                                <img src="{% static '/img/tt.jpg' %}" alt="">
+                            </div>                   
+                            <div class="artist-info">
+                                <h4 class="artist-info__name">Tóc Tiên</h4>
+                                <p class="artist-info__song">6 songs in library</p>
+                            </div>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+
+                        <!--    ARTIST 2    -->
+                        <div class="sidebar__favorite-list">
+                            <div class="artist-info__avt">
+                                {% load static %}
+                                <img src="{% static '/img/min.jpg' %}" alt="">
+                            </div>                   
+                            <div class="artist-info">
+                                <h4 class="artist-info__name">Min</h4>
+                                <p class="artist-info__song">5 songs in library</p>
+                            </div>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+
+                    <div class="sidebar__suggest-album">
+                        <div class="suggest-album">
+                            <div class="suggest-album__img-container">
+                                {% load static %}
+                                <img src="{% static '/img/nlh.jpg' %}" alt="">
+                            </div>
+                            <div class="suggest-album__content">
+                                <div class="suggest-album__info">
+                                    <h4>Anh muốn đưa em về không</h4>
+                                    <p>Ngô Lan Hương</p>
+                                </div>
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% else %}
+<h3>Welcome!</h3>
+<a href="/signup" class="btn btn-success" role="button">Sign up</a>
+<a href="/signin" class="btn btn-primary" role="button">Sign in</a>
+{% endif %}
+{% endblock %}
+    

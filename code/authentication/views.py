@@ -3,10 +3,13 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+import numpy as np
+from songs.models import Song
 
 # Create your views here.
 def home(request):
-    return render(request, 'authentication/home.html')
+    return render(request, 'index.html')
 
 def signup(request):
     if request.method == "POST":
@@ -42,7 +45,9 @@ def signin(request):
             
             firstname = user.first_name
 
-            return render(request, "authentication/home.html", {"firstname": firstname})
+            songs = Song.objects.all()
+            request.session['firstname'] = firstname 
+            return redirect("home")
         else: 
             messages.error(request, "Bad credentials!")
     return render(request, 'authentication/signin.html')
@@ -51,3 +56,7 @@ def signout(request):
     logout(request)
     messages.success(request, "Logged out successfully!")
     return redirect("home")
+def home(request):
+    songs = Song.objects.all()
+    return render(request, "authentication/index.html",{"firstname": request.session['firstname'],"songs": songs})
+    
