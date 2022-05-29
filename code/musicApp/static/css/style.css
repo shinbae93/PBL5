@@ -152,7 +152,7 @@ a{
     display: flex;
     height:3.5rem;
     margin:1rem;
-    padding:3rem 1.5rem;
+    padding:0.5rem 1.5rem;
     justify-content: space-between;
     align-items: center;
 }
@@ -173,7 +173,6 @@ a{
 }
 .navbar-user i{
     font-size:1.4rem;
-    color:#000;
 }
 
 /*======================================
@@ -382,7 +381,42 @@ a{
     transform:scale(1.02);
     cursor: pointer;
 }
+.main-content__record{
+    margin: 0px 14px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.user-menulists{
+    cursor: pointer;
+}
+.more-info{
+    position: relative;
+}
+.menu-list{
+    min-width: 170px;
+    position: absolute;
+    right: -43px;
+    bottom: 36px;
+    font-size: 12px;
+    display: none;
+}
+li{
+    list-style: none;
+    padding: 4px 8px;
+}
+.more-info:hover .menu-list{
+    display: block;
+}
+.user-menulists{
+    padding: 20px;
+}
+.user-menulists:hover .menu-list{
+    box-shadow: 0 0 10px rgb(216, 190, 210);
+    display: block;
+}
+.menu-list_sub-iten{
 
+}
 /*======================================
             PLAY-SONGS
 ======================================*/
