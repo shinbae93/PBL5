@@ -302,6 +302,21 @@ a{
 .my-playlist{
     height: 25rem;
     max-height: 25rem;
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+.my-playlist::-webkit-scrollbar {
+    width: 0.6rem;
+    background-color: rgb(255, 230, 230);
+}
+
+.my-playlist::-webkit-scrollbar-thumb {
+    background-color: rgb(249, 207, 207);
+    border-radius: 0.5rem;
+}
+
+.my-playlist::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(255, 230, 230);
 }
 .playlist-head{
     display: flex;
@@ -740,4 +755,10 @@ a{
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     border-radius: 0.3rem;
+}
+.favoritesong :focus, .favoritesong :focus-visible{
+    border: 0px !important;
+}
+.favoritesongColor{
+    background-color: rgb(255, 128, 128);
 }

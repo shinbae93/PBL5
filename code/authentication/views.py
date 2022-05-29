@@ -44,9 +44,9 @@ def signin(request):
             login(request, user)
             
             firstname = user.first_name
-
-            songs = Song.objects.all()
+            idSong = user.id
             request.session['firstname'] = firstname 
+            request.session['id'] = idSong
             return redirect("home")
         else: 
             messages.error(request, "Bad credentials!")
