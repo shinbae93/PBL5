@@ -11,7 +11,20 @@ const shuffle = document.querySelector('.shuffle-song');
 const volumeControllerLeft = document.querySelector('.fa-volume-mute');
 const volumeControllerRight = document.querySelector('.fa-volume-up');
 const valueVolume = document.querySelector('.volume');
-// document.getElementById('main').addEventListener('load', play);
+// document.querySelector('.playlist').addEventListener('click', function(){
+//     idSong = document.querySelector('.playlist .playlist__number').value();
+
+//     $ajax({
+//         type: "POST",
+//         url: 'fs/create',   
+//         data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+//               id: idSong},
+//         success:  function(response){
+               
+//            }
+//     });
+// });
+
 
 function play(){
     song = document.getElementById('song');
@@ -110,14 +123,14 @@ song.addEventListener('ended', function() {
 //==============================================
 playList.onclick = function(e) {
     
-    const songNote = e.target.closest('.playlist--hover:not(.active)'); 
-    let songNoteindex = songNote.getAttribute('data-index'); // lấy data-index
-    indexSong = songNoteindex ;
-    isPlaying = false;
+    // const songNote = e.target.closest('.playlist--hover:not(.active)'); 
+    // let songNoteindex = songNote.getAttribute('data-index'); // lấy data-index
+    // indexSong = songNoteindex ;
+    // isPlaying = false;
     
-    playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
-    song.play();
-    resetSong(songNoteindex);
+    // playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
+    // song.play();
+    //resetSong(songNoteindex);
 
 };
 //==============================================
@@ -156,23 +169,77 @@ volumeControllerLeft.onclick = function() {
 valueVolume.onchange = function() {
     song.volume = valueVolume.value; 
 }
-
+//==============================================
+//                  HIỆU ỨNG FS
+//==============================================
+function FS(id){
+    if(document.getElementById(id).className == "btn btn-dark"){
+        $.ajax(
+            {
+                type:"GET",
+                url: "/favoritesong/create",
+                data:{
+                         id: id
+                },
+                success: function( data ) 
+                {
+                    console.log(data)
+                }
+             })
+             document.getElementById(id).style.backgroundColor = 'rgb(255, 128, 128)';
+             document.getElementById(id).className = "btn btn-dark favoritesongColor";
+    }
+    else{
+        //xoa
+        $.ajax(
+            {
+                type:"GET",
+                url: "/favoritesong/delete",
+                data:{
+                         id: id
+                },
+                success: function( data ) 
+                {
+                    console.log(data)
+                }
+             })
+        document.getElementById(id).className = "btn btn-dark";
+        document.getElementById(id).style.backgroundColor = 'rgb(255, 179, 179)';
+    }
+    
+}
+// const fsBtn = document.getElementById('favoritesong1');
+// fsBtn.addEventListener('click', function() {
+//     $.ajax(
+//         {
+//             type:"GET",
+//             url: "/favoritesong/create",
+//             data:{
+//                      id: 1
+//             },
+//             success: function( data ) 
+//             {
+//                 console.log(data)
+//             }
+//          })
+//     fsBtn.style.backgroundColor = 'rgb(255, 128, 128)';
+// })
 //==============================================
 //                  HIỆU ỨNG TIM
 //==============================================
-const heartBtn = document.getElementById('heart');
-heartBtn.addEventListener('click', function() {
-    if (heartBtn.className == 'far fa-heart') {
-        heartBtn.className = 'fas fa-heart';
-        heartBtn.style.color = 'red';
-    } else {
-        heartBtn.className = 'far fa-heart';
-        heartBtn.style.color = '#676669';
-    }
-})
-displayTimer();
-rangeBar.value = 0;
-setInterval(displayTimer , 200); 
+// const heartBtn = document.getElementById('heart');
+// heartBtn.addEventListener('click', function() {
+//     if (heartBtn.className == 'far fa-heart') {
+//         heartBtn.className = 'fas fa-heart';
+//         heartBtn.style.color = 'red';
+//     } else {
+//         heartBtn.className = 'far fa-heart';
+//         heartBtn.style.color = '#676669';
+//     }
+// })
+// displayTimer();
+// rangeBar.value = 0;
+// setInterval(displayTimer , 200); 
 
 //==============================================
 //                  DARK THEME

@@ -16,10 +16,10 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path
+import favoritesongs
 
 import songs
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('song/', include(songs.urls)),
 ]
