@@ -38,3 +38,8 @@ def delete(request):
            return HttpResponse("Success!") # Sending an success response
        else:
            return HttpResponse("Request method is not a GET")
+def favoriteSong(request):
+    firstname = request.session["firstname"]
+    user = User.objects.get(id = request.session['id'])
+    fsong = FavoriteSong.objects.filter(user = user)
+    return render(request, 'authentication/favoriteSong.html',{"fsong": fsong, "firstname": firstname})

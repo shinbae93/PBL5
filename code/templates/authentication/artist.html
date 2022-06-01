@@ -1,0 +1,51 @@
+{% extends './base.html' %}
+    {% block content %}
+    {% if user.is_authenticated %}
+                <!--
+                    ====================MAIN_CONTENT=====================
+                -->
+                <div id="main-content" >
+                    <header>
+                        <nav class="main-content__header-nav">
+                            <i class="fas fa-bars bars-left"></i>
+                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-arrow-right"></i>
+                        </nav>
+                        <div class="main-content__search-form">
+                            <i class="fas fa-search search-btn"></i>
+                            <input type="text" class="search-input" placeholder="Search for artist, songs.....">
+                        </div>
+                        <i class="fas fa-bars bars-right"></i>
+                    </header>
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Artists</h3>
+                        </div>
+                        <div class="main-content_container-content" style="display: flex; flex-wrap: wrap;">
+                            {% for a in artists%}
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color #ffd9de;
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        {% load static %}
+                                        <img src="{{ a.linkImage }}" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #8CC0DE; font-size: 13px">{{ a.name }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}          
+                        </div>
+                    </div>
+                </div>
+{% else %}
+<h3>Welcome!</h3>
+<a href="/signup" class="btn btn-success" role="button">Sign up</a>
+<a href="/signin" class="btn btn-primary" role="button">Sign in</a>
+{% endif %}
+{% endblock %}
