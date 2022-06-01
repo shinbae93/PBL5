@@ -106,7 +106,7 @@ a{
     position:relative;
 } 
 .navbar-content__icon:hover{
-    background-color: #000;
+    background-color: #F4BFBF;
     transition: .25s linear;
     cursor: pointer;
 }
@@ -317,6 +317,9 @@ a{
 .my-playlist::-webkit-scrollbar-thumb:hover {
     background-color: rgb(255, 230, 230);
 }
+.playlist p, .playlistFS p{
+    margin-bottom: 0;
+}
 .playlist-head{
     display: flex;
     width:100%;
@@ -338,7 +341,24 @@ a{
     gap:1.5rem;
     width:100%;
     font-size:1.2rem;
-    padding:1rem 0;
+    padding:1rem 10px;
+    padding-right: 10px;
+    border-radius: 1rem;
+    border: radius 0.5em;margin: 5px;
+}
+.playlistFS{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+    width:100%;
+    font-size:1.3rem;
+    padding:1rem 10px;
+    padding-right: 10px;
+    border-radius: 1rem;
+    border: radius 0.5em;
+    margin: 5px;
+    background-color: #fcdddd; 
+    color: #80c2e4;
 }
 .playlist-list__title{
     font-size:1rem;
@@ -366,6 +386,7 @@ a{
     position: relative;
     z-index: 1;
     background-color: #fff;
+    color: #fabebe;
     border-radius: .8rem;
     padding:1rem 1rem;
     transform:scale(1.02);
