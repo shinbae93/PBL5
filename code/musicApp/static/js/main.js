@@ -265,7 +265,7 @@ function shuffleSong() {
     if (isShuffle == false) {
         isShuffle = true;
         shuffle.style.color = 'yellow';
-        changeSong(3);
+        //changeSong(3);
     }
     else{
         isShuffle = false;
@@ -359,6 +359,36 @@ document.getElementById("mic").addEventListener('click', function(){
                 playBtn.innerHTML = `<i class="fas fa-play-circle play-icon main-icon main-icon--big"></i>`;
                 song.pause();
                 isPlaying = true;
+                break;
+            case "repeat":
+                if(playRepeat.style.color != 'yellow') {
+                    playRepeat.style.color = 'yellow';
+                    playRepeat.style.webkitTransform = 'rotate(360deg)';
+                    isRepeat = true;
+                }else {
+                    playRepeat.style.color = '#676669';
+                    playRepeat.style.webkitTransform = 'rotate(0)';
+                    isRepeat = false;
+                }
+                break;
+            case "shuffle":
+                if (isShuffle == false) {
+                    isShuffle = true;
+                    shuffle.style.color = 'yellow';
+                    //changeSong(3);
+                }
+                else{
+                    isShuffle = false;
+                    shuffle.style.color = '#676669';
+                }
+                break;
+            case "down":
+                if(song.volume >= 0)
+                song.volume = valueVolume.value - 0.1;
+                break;
+            case "up":
+                if(song.volume <= 1)
+                song.volume = valueVolume.value + 0.1;
                 break;
             default:
                 alert("Khong nhan dien duoc!!!");
