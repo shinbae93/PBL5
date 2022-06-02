@@ -9,5 +9,6 @@ urlpatterns = [
     path('songalbum/', include('songalbums.urls')),
     path('album/', include('albums.urls')),
     path('artist/', include('artists.urls')),
+    path('feed/', include('feeds.urls')),
     path('favoritesong/', include('favoritesongs.urls')),
 ]
