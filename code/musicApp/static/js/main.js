@@ -340,7 +340,7 @@ hideSideBar.addEventListener('click', function() {
 })
 document.getElementById("mic").addEventListener('click', function(){
     const contactServer = () => {
-        var url = "ws://192.168.1.49";
+        var url = "ws://127.0.0.1";
         const socket = new WebSocket(url + ":3000");
 
         socket.onopen = function() {
@@ -366,6 +366,7 @@ document.getElementById("mic").addEventListener('click', function(){
             }
         });
       }
+      contactServer();
 })
 
 

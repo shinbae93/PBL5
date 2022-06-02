@@ -55,7 +55,7 @@ def signin(request):
 def signout(request):
     logout(request)
     messages.success(request, "Logged out successfully!")
-    return redirect("home")
+    return redirect("/")
 def home(request):
     songs = Song.objects.all()
     return render(request, "authentication/index.html",{"firstname": request.session['firstname'],"songs": songs})
