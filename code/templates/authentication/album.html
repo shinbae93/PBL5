@@ -1,0 +1,183 @@
+{% extends './base.html' %}
+    {% block content %}
+    {% if user.is_authenticated %}
+                
+                <!--
+                    ====================MAIN_CONTENT=====================
+                -->
+                <div id="main-content" >
+                    <header>
+                        <nav class="main-content__header-nav">
+                            <i class="fas fa-bars bars-left"></i>
+                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-arrow-right"></i>
+                        </nav>
+                        <div class="main-content__search-form">
+                            <i class="fas fa-search search-btn"></i>
+                            <input type="text" class="search-input" placeholder="Search for artist, songs.....">
+                        </div>
+                        <div class="main-content__record">
+                            <i class="fa fa-microphone record-btn" aria-hidden="true" id="mic"></i>
+                        </div>
+                    </header>
+                    
+                    <div class="main-content_container">
+                        <div class="main-content_container-title">
+                            <h3>Albums</h3>
+                        </div>
+                        <div class="main-content_container-content" style="display: flex; flex-wrap: wrap;">
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/05/20/d/e/1/8/1653012117305.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Một Chiều Mưa Nào Đó</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Hà Anh Tuấn</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/05/31/2/5/5/b/1653978963426.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Đi Đâu Cũng Nghe</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">V.A</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/05/25/1/6/9/f/1653449877973.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Cô Đơn Tan Trong Mưa</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Trung Quân Idol</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/04/08/7/6/1/f/1649408856100.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Thâu Đêm</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">IVE</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2021/12/16/7/5/5/6/1639620877501.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Yêu Rồi Yêu Rồi Yêu</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Tóc Tiên</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/01/27/8/f/f/6/1643256481392.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Yêu Tận Cùng, Đau Tận Cùng</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Đàm Vĩnh Hưng</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/05/27/e/e/3/5/1653648996912.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">COLOURs</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Hứa Kim Tuyền</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2022/03/29/0/1/6/0/1648530087997.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Nắng Thủy Tinh</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Suny Hạ Linh</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="sidebar__suggest-album" style="width: 156px; margin: 5px;">
+                                <div class="suggest-album" style="background-color:rgb(255, 230, 230);
+                                background-image linear-gradient(315deg, #ffd9de 0%, #e99ba6 74%);
+                                padding: 0px;
+                                ">
+                                    <div class="suggest-album__img-container">
+                                        <img src="https://avatar-ex-swe.nixcdn.com/playlist/2021/10/03/f/5/7/c/1633266403812.jpg" alt="" style="width: 156px; height: 156px;">
+                                    </div>
+                                    <div class="suggest-album__content" style="margin: 5px;">
+                                        <div class="suggest-album__info">
+                                            <h4 style=" color: #0a1922; font-size: 20px">Anh Trong Tim Em Rồi</h4>
+                                            <h4 style=" color: #535e64; font-size: 13px">Sơn Tùng - MTP</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+{% else %}
+<h3>Welcome!</h3>
+<a href="/signup" class="btn btn-success" role="button">Sign up</a>
+<a href="/signin" class="btn btn-primary" role="button">Sign in</a>
+{% endif %}
+{% endblock %}
+    
