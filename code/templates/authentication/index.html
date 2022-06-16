@@ -7,7 +7,7 @@
             <!--
                 ====================MAIN_CONTENT=====================
             -->
-            <div id="main-content" >
+            <div id="main-content">
                 <header>
                     <nav class="main-content__header-nav">
                         <i class="fas fa-bars bars-left"></i>
@@ -61,7 +61,11 @@
                                 <p class="playlist__title">{{song.name}}</p>
                                 <p class="playlist__artist">{{song.artist.name}}</p>
                                 <p class="playlist__time">{{song.time}}</p>
-                                <a class="btn btn-dark" id="{{song.id}}" style="background-color: rgb(255, 179, 179) !important; border: 0px;" onclick="FS({{song.id}})"><i class="far fa-heart fs"></i></a>    
+                                {% if  song.target %}
+                                    <a class="btn btn-dark favoritesongColor" id="{{song.id}}" style="background-color: rgb(255, 128, 128) !important; border: 0px;" onclick="FS({{song.id}})"><i class="far fa-heart fs"></i></a>    
+                                {% else %}
+                                    <a class="btn btn-dark" id="{{song.id}}" style="background-color: rgb(255, 179, 179) !important; border: 0px;" onclick="FS({{song.id}})"><i class="far fa-heart fs"></i></a>
+                                {% endif %}
                                 <p class="playlist__link" id="playlist-link{{ song.id }}"hidden>{{song.linkSave}}</p>
                             </div>
                         {% endfor %}

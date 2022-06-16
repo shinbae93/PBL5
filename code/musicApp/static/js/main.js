@@ -11,6 +11,38 @@ const shuffle = document.querySelector('.shuffle-song');
 const volumeControllerLeft = document.querySelector('.fa-volume-mute');
 const volumeControllerRight = document.querySelector('.fa-volume-up');
 const valueVolume = document.querySelector('.volume');
+var Songs;
+function Load(){
+    $.ajax(
+        {
+            type:"GET",
+            url: "/song/allsongs",
+            data:{
+            },
+            success: function(response) 
+            {
+                Songs = response.split(" ");
+                console.log(Songs);
+                
+            }
+         })
+}
+function LoadFS(){
+    $.ajax(
+        {
+            type:"GET",
+            url: "/favoritesong/allsongs",
+            data:{
+            },
+            success: function(response) 
+            {
+                Songs = response.split(" ");
+                console.log(Songs);
+                
+            }
+         })
+}
+//setTimeout(1000);
 displayTimer();
 rangeBar.value = 0;
 setInterval(displayTimer , 200); 
@@ -54,6 +86,8 @@ function FS(id){
     }
     else{
         //xoa
+        console.log("xoa")
+        console.log(id)
         $.ajax(
             {
                 type:"GET",
@@ -73,8 +107,13 @@ function FS(id){
 }
 
 //set mặc định bài 1 phát đầu
-let indexSong = 7;
-document.getElementById('playlist7').className = "playlist playlist--hover active";
+let indexSong;
+setTimeout(function(){
+    indexSong = 0;
+    document.getElementById('playlist'+Songs[0]).className = "playlist playlist--hover active";
+}, 200)
+
+
 
 //==============================================
 //                  Phát-dừng bài hát
@@ -153,27 +192,28 @@ playRepeat.addEventListener('click',  function() {
 // }
 
 function changeSong(dir) {
-    document.getElementById(`playlist${indexSong}`).className = "playlist playlist--hover";
+    document.getElementById(`playlist${Songs[indexSong]}`).className = "playlist playlist--hover";
     if (dir === 1) { //next
         indexSong++;
-        if (indexSong >= 21) {
-            indexSong = 7;
+        //console.log(Songs[Songs.length - 2]+1)
+        if (indexSong >= Songs.length - 1) {
+            indexSong = 0;
         }
     } else if (dir === -1) { //prev
         indexSong--;
-        if (indexSong < 7) {
-            indexSong = 20;
+        if (indexSong < 0) {
+            indexSong = Songs.length - 2;
         }
     } else if(dir === 3) {
-        indexSong = Math.floor((Math.random()+1) * 20) ;
-        if(indexSong > 20 && indexSong >= 7) indexSong = indexSong - 20;
-        if(indexSong < 7) indexSong = 7;  
+        indexSong = Math.floor((Math.random()+1) * Songs[Songs.length - 2]) ;
+        if(indexSong > Songs.length - 2 && indexSong >= 0) indexSong = indexSong - Songs.length + 2;
+        if(indexSong < 0) indexSong = 0;  
     }
     //resetSong(indexSong);
     playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
     console.log(indexSong);
-    src = document.getElementById(`playlist-link${indexSong}`).innerText;
-    document.getElementById(`playlist${indexSong}`).className = "playlist playlist--hover active";
+    src = document.getElementById(`playlist-link${Songs[indexSong]}`).innerText;
+    document.getElementById(`playlist${Songs[indexSong]}`).className = "playlist playlist--hover active";
     console.log(src);
     song.setAttribute('src', src);  
     song.play();
@@ -233,12 +273,13 @@ song.addEventListener('ended', function() {
 //        CHỌN BÀI HÁT TRONG DANH SÁCH
 //==============================================
 function SelectSong(id){
-    document.getElementById(`playlist${indexSong}`).className = "playlist playlist--hover";
+    document.getElementById(`playlist${Songs[indexSong]}`).className = "playlist playlist--hover";
     playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
     console.log(id);
-    indexSong = id;
-    src = document.getElementById(`playlist-link${indexSong}`).innerText;
-    document.getElementById(`playlist${indexSong}`).className = "playlist playlist--hover active";
+    indexSong = Songs.indexOf(`${id}`);
+    console.log(indexSong);
+    src = document.getElementById(`playlist-link${Songs[indexSong]}`).innerText;
+    document.getElementById(`playlist${Songs[indexSong]}`).className = "playlist playlist--hover active";
     console.log(src);
     song.setAttribute('src', src);  
     song.play();

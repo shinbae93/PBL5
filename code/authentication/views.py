@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 import numpy as np
+from favoritesongs.models import FavoriteSong
 from songs.models import Song
 
 # Create your views here.
@@ -58,5 +59,12 @@ def signout(request):
     return redirect("/")
 def home(request):
     songs = Song.objects.all()
+    user = User.objects.get(id = request.session['id'])
+    fsongs = FavoriteSong.objects.filter(user = user)
+    for i in fsongs:
+        song = Song.objects.filter(id = i.song.id)
+        if song[0]:
+            song[0].target = 1
+            song[0].save()
     return render(request, "authentication/index.html",{"firstname": request.session['firstname'],"songs": songs})
     

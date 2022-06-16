@@ -1,8 +1,21 @@
-from django.http import HttpResponse
+from telnetlib import STATUS
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import render
+from grpc import Status, StatusCode
+from requests import Response
 from songs.models import Song
   
 # Create your views here.
+def getAllSongs(request):
+    if request.method == 'GET':
+            idsong = []
+            songs = Song.objects.all()
+            for i in songs:
+                idsong.append(i.id)
+                idsong.append(" ")
+            return HttpResponse(idsong) # Sending an success response
+    else:
+           return HttpResponse("Request method is not a GET")
 def trendSong(request):
     firstname = request.session["firstname"]
     songs = Song.objects.all()
