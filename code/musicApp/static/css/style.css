@@ -139,6 +139,10 @@ a{
     color:grey;
     margin:.8rem
 }
+.navbar-content, ul{
+    padding-left: 0;
+}
+
 .navbar-user{
     margin-top:2rem;
     border-bottom-left-radius: 2rem;
@@ -315,7 +319,7 @@ a{
 }
 
 .my-playlist::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(255, 230, 230);
+    background-color: rgb(255, 179, 179);
 }
 .playlist p, .playlistFS p{
     margin-bottom: 0;

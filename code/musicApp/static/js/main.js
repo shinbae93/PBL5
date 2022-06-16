@@ -137,8 +137,8 @@ function playPause() {
 //==============================================
 var isRepeat = false;
 playRepeat.addEventListener('click',  function() {
-    if(playRepeat.style.color != 'yellow') {
-        playRepeat.style.color = 'yellow';
+    if(playRepeat.style.color != 'rgb(255, 179, 179)') {
+        playRepeat.style.color = 'rgb(255, 179, 179)';
         playRepeat.style.webkitTransform = 'rotate(360deg)';
         isRepeat = true;
     }else {
@@ -305,7 +305,7 @@ shuffle.addEventListener('click', shuffleSong);
 function shuffleSong() {
     if (isShuffle == false) {
         isShuffle = true;
-        shuffle.style.color = 'yellow';
+        shuffle.style.color = 'rgb(255, 179, 179)';
         //changeSong(3);
     }
     else{
