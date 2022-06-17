@@ -10,4 +10,6 @@ urlpatterns = [
     path('album/', include('albums.urls')),
     path('artist/', include('artists.urls')),
     path('favoritesong/', include('favoritesongs.urls')),
+    path('album/detail', include('albumdetails.urls')),
+    path('artist/detail', include('artistdetails.urls')),
 ]
