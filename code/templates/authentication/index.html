@@ -55,7 +55,7 @@
                             <p class="">LIKE</p>
                         </div>
                         {% for song in songs %}
-                            <div class="playlist playlist--hover" id="playlist{{ song.id }}" ondblclick="SelectSong({{ song.id}})">
+                            <div class="playlist playlist--hover" id="playlist{{ song.id }}" ondblclick="SelectSong({{ song.id }})">
                                 <p class="playlist__number" hidden>{{song.id}}</p>
                                 <p class="playlist__title">{{song.name}}</p>
                                 <p class="playlist__artist">{{song.artist.name}}</p>
