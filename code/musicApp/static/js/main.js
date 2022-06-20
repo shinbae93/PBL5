@@ -70,6 +70,17 @@ function LoadAT() {
     },
   });
 }
+function LoadAB() {
+  $.ajax({
+    type: 'GET',
+    url: '/album/detail/getallsong',
+    data: {},
+    success: function (response) {
+      Songs = response.split(' ');
+      console.log(Songs);
+    },
+  });
+}
 //setTimeout(1000);
 displayTimer();
 rangeBar.value = 0;
