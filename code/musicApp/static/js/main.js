@@ -20,9 +20,14 @@ function Load() {
     data: {},
     success: function (response) {
       Songs = response.split(' ');
+      console.log(Songs[0]);
+    
+    // In ra kết quả sau khi sắp xếp
       console.log(Songs);
     },
+    
   });
+  
 
   //==============================================
   //              ACTIVE NAVBAR ITEM
@@ -115,10 +120,22 @@ function FS(id) {
 //set mặc định bài 1 phát đầu
 let indexSong;
 setTimeout(function () {
+  
   indexSong = 0;
   document.getElementById('playlist' + Songs[0]).className =
     'playlist playlist--hover active';
-}, 200);
+    $.ajax({
+      type: 'GET',
+      url: '/song/getsong',
+      data: {"id": Songs[0]},
+      success: function (response) {
+        song.setAttribute('src', response)
+      
+      // In ra kết quả sau khi sắp xếp
+        console.log(response);
+      },
+    });
+}, 300);
 
 //==============================================
 //                  Phát-dừng bài hát
@@ -197,6 +214,7 @@ playRepeat.addEventListener('click', function () {
 // }
 
 function changeSong(dir) {
+  console.log(indexSong);
   document.getElementById(`playlist${Songs[indexSong]}`).className =
     'playlist playlist--hover';
   if (dir === 1) {
@@ -213,7 +231,8 @@ function changeSong(dir) {
       indexSong = Songs.length - 2;
     }
   } else if (dir === 3) {
-    indexSong = Math.floor((Math.random() + 1) * Songs[Songs.length - 2]);
+    indexSong = Math.floor((Math.random() + 1) * (Songs.length - 2));
+    console.log(indexSong);
     if (indexSong > Songs.length - 2 && indexSong >= 0)
       indexSong = indexSong - Songs.length + 2;
     if (indexSong < 0) indexSong = 0;

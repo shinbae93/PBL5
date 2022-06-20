@@ -16,6 +16,13 @@ def getAllSongs(request):
             return HttpResponse(idsong) # Sending an success response
     else:
            return HttpResponse("Request method is not a GET")
+def getSong(request):
+    if request.method == 'GET':
+        id = request.GET.get("id", None)
+        songs = Song.objects.filter(id = id)
+        return HttpResponse(songs.first().linkSave) # Sending an success response
+    else:
+           return HttpResponse("Request method is not a GET")
 def trendSong(request):
     firstname = request.session["firstname"]
     songs = Song.objects.all()
