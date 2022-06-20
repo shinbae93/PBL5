@@ -59,6 +59,17 @@ function LoadFS() {
     },
   });
 }
+function LoadAT() {
+  $.ajax({
+    type: 'GET',
+    url: '/artist/detail/getallsong',
+    data: {},
+    success: function (response) {
+      Songs = response.split(' ');
+      console.log(Songs);
+    },
+  });
+}
 //setTimeout(1000);
 displayTimer();
 rangeBar.value = 0;
