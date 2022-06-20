@@ -1,6 +1,7 @@
 from typing_extensions import Self
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+import numpy as np
 
 from favoritesongs.models import FavoriteSong
 from songs.models import Song
@@ -50,6 +51,7 @@ def getAllSongs(request):
             firstname = request.session["firstname"]
             user = User.objects.get(id = request.session['id'])
             songs = FavoriteSong.objects.filter(user = user)
+            
             for i in songs:
                 idsong.append(i.song.id)
                 idsong.append(" ")
