@@ -54,6 +54,17 @@ function LoadFS() {
     },
   });
 }
+function LoadAT() {
+  $.ajax({
+    type: 'GET',
+    url: '/artist/detail/getallsong',
+    data: {},
+    success: function (response) {
+      Songs = response.split(' ');
+      console.log(Songs);
+    },
+  });
+}
 //setTimeout(1000);
 displayTimer();
 rangeBar.value = 0;
@@ -118,7 +129,7 @@ setTimeout(function () {
   indexSong = 0;
   document.getElementById('playlist' + Songs[0]).className =
     'playlist playlist--hover active';
-}, 200);
+}, 300);
 
 //==============================================
 //                  Phát-dừng bài hát
