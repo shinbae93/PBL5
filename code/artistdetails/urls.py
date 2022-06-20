@@ -4,5 +4,5 @@ from artistdetails import views
 
 
 urlpatterns = [
-    path('', views.artistDetail,name='artist'),
+    path('<int:id>', views.artistDetail,name='artist'),
 ]

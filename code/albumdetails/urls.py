@@ -4,5 +4,5 @@ from albumdetails import views
 
 
 urlpatterns = [
-    path('', views.favoriteSong,name='allsongs'),
+    path('<int:id>', views.albumSongs,name='allsongs'),
 ]

@@ -4,3 +4,4 @@ from django.db import models
 class Artist(models.Model):
     name = models.TextField(max_length=256)
     linkImage = models.TextField()
+    description = models.TextField(default='')
