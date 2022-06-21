@@ -25,7 +25,7 @@
     />
     <title>Paw Music</title>
   </head>
-  <body onload="LoadAT()">
+  <body onload="LoadAB()">
     <div class="">
       <div id="main" style="width: 100%;">
         <div id="container" >
@@ -113,25 +113,6 @@
                         <input type="text" class="search-input" placeholder="Search for artist, songs.....">
                     </div>
                 </header>
-                {% comment %} <div class="my-playlist" style="height: 70rem;max-height: 70rem;">
-                    <div class="playlist-head">
-                        <h4 style=" color: #8CC0DE;">Detail song of album<i class="fas fa-heart"></i></h4> 
-                    </div>
-                    <div class="playlist-list">
-                        <div class="playlist playlist-list__title" style="background-color: rgb(230, 249, 255); color: #fb9f9f; font-size:15px; padding-bottom:10px; margin-bottom:10px">
-                            <p class="playlist__title">TITLE</p>
-                            <p class="playlist__artist">ARTIST</p>
-                            <p class="playlist__time">TIME</p>
-                        </div>
-                        {% for song in fsong %}
-                            <div class="playlistFS playlist--hover" style="">
-                                <p class="playlist__title">{{song.song.name}}</p>
-                                <p class="playlist__artist">{{song.song.artist.name}}</p>
-                                <p class="playlist__time">{{song.song.time}}</p>   
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div> {% endcomment %}
                 <div class="my-playlistFS">
                     <div class="playlist-head">
                         <h4 style=" color: #8CC0DE;">Detail song of album<i class="fas fa-heart"></i></h4> 
@@ -142,15 +123,13 @@
                             <p class="playlist__title">TITLE</p>
                             <p class="playlist__artist">ARTIST</p>
                             <p class="playlist__time">TIME</p>
-                            <p class="">LIKE</p>
                         </div>
                         {% for song in songs %}
                             <div class="playlist playlist--hover" id="playlist{{ song.id }}" ondblclick="SelectSong({{ song.id}})">
                                 <p class="playlist__number" hidden>{{song.id}}</p>
                                 <p class="playlist__title">{{song.name}}</p>
                                 <p class="playlist__artist">{{song.artist.name}}</p>
-                                <p class="playlist__time">{{song.time}}</p>
-                                <a class="btn btn-dark favoritesongColor" id="{{song.id}}" style="background-color: rgb(255, 128, 128) !important; border: 0px;" onclick="FS({{song.id}})"><i class="far fa-heart fs"></i></a>    
+                                <p class="playlist__time">{{song.time}}</p>    
                                 <p class="playlist__link" id="playlist-link{{ song.id }}"hidden>{{song.linkSave}}</p>
                             </div>
                         {% endfor %}

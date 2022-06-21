@@ -70,6 +70,17 @@ function LoadAT() {
     },
   });
 }
+function LoadAB() {
+  $.ajax({
+    type: 'GET',
+    url: '/album/detail/getallsong',
+    data: {},
+    success: function (response) {
+      Songs = response.split(' ');
+      console.log(Songs);
+    },
+  });
+}
 //setTimeout(1000);
 displayTimer();
 rangeBar.value = 0;
@@ -146,7 +157,7 @@ setTimeout(function () {
         console.log(response);
       },
     });
-}, 300);
+}, 400);
 
 //==============================================
 //                  Phát-dừng bài hát
@@ -180,49 +191,6 @@ playRepeat.addEventListener('click', function () {
     isRepeat = false;
   }
 });
-
-//==============================================
-//          RESET LẠI KHI CHỌN BÀI HÁT
-//==============================================
-// function resetSong(dir) {
-//     dir = Number (dir);
-//     playList.innerHTML =`
-//     <div class="playlist playlist-list__title">
-//         <p class="playlist__number">#</p>
-//         <p class="playlist__title">TITLE</p>
-//         <p class="playlist__artist">ARTIST</p>
-//         <p class="playlist__time">TIME</p>
-//     </div>`;
-//     for (var j = 0 ;j< musics.length; j++) {
-//         playList.insertAdjacentHTML( 'beforeend',
-//        `<div class="playlist playlist--hover ${j === dir ? 'active' : ''}" data-index=${musics[j].id}>
-//             <p class=" playlist__number">${j === dir? '<i class="fas fa-volume-up"></i>' : `${musics[j].number}`}</p>
-//             <p class=" playlist__title">${musics[j].title}</p>
-//             <p class=" playlist__artist">${musics[j].artist}</p>
-//             <p class=" playlist__time">${musics[j].time}</p>
-//         </div>`)
-//     }
-// }
-// function changeSong(dir) {
-//     if (dir === 1) { //next
-//         indexSong++;
-//         if (indexSong >= musics.length) {
-//             indexSong = 0;
-//         }
-//     } else if (dir === -1) { //prev
-//         indexSong--;
-//         if (indexSong < 0) {
-//             indexSong = musics.length-1;
-//         }
-//     } else if(dir === 3) {
-//         indexSong = Math.floor(Math.random() * 5);
-//     }
-//     //resetSong(indexSong);
-//     playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
-//     src = document.getElementById(`playlist-number${indexSong}`).innerHTML;
-//     song.setAttribute('src', src);
-//     song.play();
-// }
 
 function changeSong(dir) {
   console.log(indexSong);
@@ -327,20 +295,6 @@ function SelectSong(id) {
   song.setAttribute('src', src);
   song.play();
 }
-// playList.onclick = function(e) {
-
-//     const songNote = e.target.closest('.playlist--hover:not(.active)');
-//     playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
-//     console.log(playList.querySelector("a"));
-//     indexSong = playList.querySelector("a").id;
-//     console.log(indexSong);
-//     src = document.getElementById(`playlist-link${indexSong}`).innerText;
-//     document.getElementById(`playlist${indexSong}`).className = "playlist playlist--hover active";
-//     console.log(src);
-//     song.setAttribute('src', src);
-//     song.play();
-
-// };
 //==============================================
 //              XÁO BÀI HÁT
 //==============================================
@@ -412,12 +366,6 @@ barLeft.addEventListener('click', function () {
 hideNavBar.addEventListener('click', function () {
   navBar.classList.remove('active');
 });
-// barRight.addEventListener('click', function() {
-//     sideBar.classList.add('active');
-//     if (navBar.classList.contains('active')) {
-//         navBar.classList.remove('active');
-//     }
-// })
 hideSideBar.addEventListener('click', function () {
   sideBar.classList.remove('active');
 });

@@ -426,6 +426,7 @@ ul {
   padding: 1rem 1rem;
   transform: scale(1.02);
   cursor: pointer;
+  margin-right: 0px;
 }
 .main-content__record {
   margin: 0px 14px;
