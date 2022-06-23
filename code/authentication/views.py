@@ -61,10 +61,5 @@ def home(request):
     songs = Song.objects.all()
     user = User.objects.get(id = request.session['id'])
     fsongs = FavoriteSong.objects.filter(user = user)
-    for i in fsongs:
-        song = Song.objects.filter(id = i.song.id)
-        if song[0]:
-            song[0].target = 1
-            song[0].save()
     return render(request, "authentication/index.html",{"firstname": request.session['firstname'],"songs": songs})
     

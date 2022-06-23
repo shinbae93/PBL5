@@ -20,6 +20,8 @@ def create(request):
            id = request.GET['id']
            user = User.objects.get(id = request.session['id'])
            song = Song.objects.get(id = id)
+           song.target = 1
+           song.save()
            fsong = FavoriteSong.objects.filter(song = song).filter(user = user)
            if fsong.count() == 0:
                song = FavoriteSong()
@@ -34,6 +36,8 @@ def delete(request):
            id = request.GET['id']
            user = User.objects.get(id = request.session['id'])
            song = Song.objects.get(id = id)
+           song.target = 0
+           song.save()
            fsong = FavoriteSong.objects.filter(song = song).filter(user = user)
            fsong[0].delete()
            print(fsong[0])

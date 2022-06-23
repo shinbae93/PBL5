@@ -157,7 +157,7 @@ setTimeout(function () {
         console.log(response);
       },
     });
-}, 400);
+}, 600);
 
 //==============================================
 //                  Phát-dừng bài hát
