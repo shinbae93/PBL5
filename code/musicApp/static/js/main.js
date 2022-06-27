@@ -21,13 +21,11 @@ function Load() {
     success: function (response) {
       Songs = response.split(' ');
       console.log(Songs[0]);
-    
-    // In ra kết quả sau khi sắp xếp
+
+      // In ra kết quả sau khi sắp xếp
       console.log(Songs);
     },
-    
   });
-  
 
   //==============================================
   //              ACTIVE NAVBAR ITEM
@@ -142,21 +140,20 @@ function FS(id) {
 //set mặc định bài 1 phát đầu
 let indexSong;
 setTimeout(function () {
-  
   indexSong = 0;
   document.getElementById('playlist' + Songs[0]).className =
     'playlist playlist--hover active';
-    $.ajax({
-      type: 'GET',
-      url: '/song/getsong',
-      data: {"id": Songs[0]},
-      success: function (response) {
-        song.setAttribute('src', response)
-      
+  $.ajax({
+    type: 'GET',
+    url: '/song/getsong',
+    data: { id: Songs[0] },
+    success: function (response) {
+      song.setAttribute('src', response);
+
       // In ra kết quả sau khi sắp xếp
-        console.log(response);
-      },
-    });
+      console.log(response);
+    },
+  });
 }, 600);
 
 //==============================================
@@ -371,7 +368,7 @@ hideSideBar.addEventListener('click', function () {
 });
 document.getElementById('mic').addEventListener('click', function () {
   const contactServer = () => {
-    var url = 'ws://127.0.0.1';
+    var url = 'ws://192.168.43.251';
     const socket = new WebSocket(url + ':3000');
 
     socket.onopen = function () {
@@ -381,42 +378,56 @@ document.getElementById('mic').addEventListener('click', function () {
       command = event.data;
       console.log(command);
       switch (command) {
-        case 'play':
+        case 'YES':
           playBtn.innerHTML = `<i class="fas fa-pause-circle pause-icon main-icon main-icon--big"></i>`;
           song.play();
           isPlaying = false;
           break;
-        case 'stop':
+        case 'STOP':
           playBtn.innerHTML = `<i class="fas fa-play-circle play-icon main-icon main-icon--big"></i>`;
           song.pause();
           isPlaying = true;
           break;
-        case 'repeat':
-          if (playRepeat.style.color != 'yellow') {
-            playRepeat.style.color = 'yellow';
-            playRepeat.style.webkitTransform = 'rotate(360deg)';
-            isRepeat = true;
-          } else {
-            playRepeat.style.color = '#676669';
-            playRepeat.style.webkitTransform = 'rotate(0)';
-            isRepeat = false;
+        // case 'repeat':
+        //   if (playRepeat.style.color != 'yellow') {
+        //     playRepeat.style.color = 'yellow';
+        //     playRepeat.style.webkitTransform = 'rotate(360deg)';
+        //     isRepeat = true;
+        //   } else {
+        //     playRepeat.style.color = '#676669';
+        //     playRepeat.style.webkitTransform = 'rotate(0)';
+        //     isRepeat = false;
+        //   }
+        //   break;
+        // case 'shuffle':
+        //   if (isShuffle == false) {
+        //     isShuffle = true;
+        //     shuffle.style.color = 'yellow';
+        //     //changeSong(3);
+        //   } else {
+        //     isShuffle = false;
+        //     shuffle.style.color = '#676669';
+        //   }
+        //  break;
+        case 'RIGHT':
+          if (isShuffle == true) changeSong(3);
+          else changeSong(1);
+          break;
+        case 'LEFT':
+          if (isShuffle == true) changeSong(3);
+          else changeSong(-1);
+          break;
+        case 'DOWN':
+          if (song.volume >= 0.1) {
+            song.volume -= 0.1;
+            valueVolume.value = song.volume;
           }
           break;
-        case 'shuffle':
-          if (isShuffle == false) {
-            isShuffle = true;
-            shuffle.style.color = 'yellow';
-            //changeSong(3);
-          } else {
-            isShuffle = false;
-            shuffle.style.color = '#676669';
+        case 'UP':
+          if (song.volume <= 0.9) {
+            song.volume += 0.1;
+            valueVolume.value = song.volume;
           }
-          break;
-        case 'down':
-          if (song.volume >= 0) song.volume = valueVolume.value - 0.1;
-          break;
-        case 'up':
-          if (song.volume <= 1) song.volume = valueVolume.value + 0.1;
           break;
         default:
           alert('Khong nhan dien duoc!!!');
